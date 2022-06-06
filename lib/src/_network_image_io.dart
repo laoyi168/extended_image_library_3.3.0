@@ -359,6 +359,7 @@ class ExtendedNetworkImageProvider
           data['subType']=encryptSubType;
           bytes = await Executor().execute<Map<String, dynamic>,dynamic,dynamic,dynamic,Uint8List>(arg1: data, fun1: decryptTest);
         }else{
+          print(bytes);
           bytes=await decrypt(bytes, encryptType,encryptSubType);
         }
       }
@@ -376,6 +377,7 @@ class ExtendedNetworkImageProvider
     } finally {
       await chunkEvents?.close();
     }
+    print('byg错误');
     return null;
   }
 
