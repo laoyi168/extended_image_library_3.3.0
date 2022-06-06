@@ -162,6 +162,7 @@ class ExtendedNetworkImageProvider
           result = await instantiateImageCodec(data, decode);
         }
       } catch (e) {
+        print("byg解码错误"+key.url);
         if (printError) {
           print(e);
         }
@@ -359,8 +360,6 @@ class ExtendedNetworkImageProvider
           data['subType']=encryptSubType;
           bytes = await Executor().execute<Map<String, dynamic>,dynamic,dynamic,dynamic,Uint8List>(arg1: data, fun1: decryptTest);
         }else{
-          print(newUrl);
-          print(bytes.toString());
           bytes=await decrypt(bytes, encryptType,encryptSubType);
         }
       }
