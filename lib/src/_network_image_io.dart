@@ -162,7 +162,6 @@ class ExtendedNetworkImageProvider
           result = await instantiateImageCodec(data, decode);
         }
       } catch (e) {
-        print("byg解码错误"+key.url);
         if (printError) {
           print(e);
         }
