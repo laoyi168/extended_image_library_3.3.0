@@ -351,16 +351,16 @@ class ExtendedNetworkImageProvider
             StateError('NetworkImage is an empty file: $resolved'));
       }
       if(encryptType!=''){
-        if(encryptType=='h50'||encryptType=='xingba'){
+        //if(encryptType=='h50'||encryptType=='xingba'){
           await Executor().warmUp(log: true,isolatesCount: 2);
           final Map<String, dynamic> data = <String, dynamic>{};
           data['bytes']=bytes;
           data['type']=encryptType;
           data['subType']=encryptSubType;
           bytes = await Executor().execute<Map<String, dynamic>,dynamic,dynamic,dynamic,Uint8List>(arg1: data, fun1: decryptTest);
-        }else{
+        /*}else{
           bytes=await decrypt(bytes, encryptType,encryptSubType);
-        }
+        }*/
       }
 
       return bytes;
